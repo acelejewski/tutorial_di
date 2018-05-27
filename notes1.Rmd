@@ -211,5 +211,13 @@ As the posterior distribution is normal it can be used for prediciton or to derv
 
 
 
+```{r}
+mtcars
+library(ggplot2)
+ggplot(mtcars, aes(mpg, cyl)) + geom_point()
+
+```
+
+
 
 
