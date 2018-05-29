@@ -126,5 +126,6 @@ As the posterior distribution is normal it can be used for prediciton or to derv
 ###A Bayesina t-test...
 
 
+asfdadsf
 
 
