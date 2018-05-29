@@ -101,3 +101,4 @@ Two main philosophies on selecting a prior:
 Nevertheless the idea that there if subjectivity in selecting a prior, and by extension subjectivity surrounding can be seen as a contrast to to NHSTs. However, interpretation of data with NHSTs does preclude the fact the same evidence may be viewed in a different light. 
 
 The choice of prior is not limited to the normal distribution. 
+-
