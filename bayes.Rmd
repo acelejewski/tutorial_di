@@ -15,7 +15,7 @@ The goal of Bayesian inference: move beyond assessment of evidence to obtain an 
 
 This involves:
 
-A prior: a probability distribution that reflects the uncertainty of existing knowledge. 
+A prior: a probability distribution that reflects the uncertainty of existing knowledge. \
 The posterior: the outcome of Bayesian inference. Also a probability distribution
 
 
@@ -29,7 +29,7 @@ $$Pr(A|B) = Pr(B|A) \frac{Pr(A)} {Pr(B)}$$
 
 This equation describes the relationship between probabilities.
 
-Lets say that lie detector test is being evaluated. Lets consider that Event **A** is lying and Event **B** is failing the lie detector test (detecting a lie).
+Lets say that lie detector test is being evaluated. Lets consider that Event **A** is lying and Event **B** is failing the lie detector test.
 
 If lies are detected 99% of the time by the lie detector (99% success rate), then $Pr(B|A) = .99$. In other words the probability of B (detecting a lie) given that A is true (one is lying). 
 
@@ -53,7 +53,7 @@ Now that we know what $Pr(B)$, the probability of failing the test is, we can de
 
 $$Pr(A|B) = Pr(B|A)\frac{Pr(A)}{Pr(B)} =  .99 \times \frac{.001}{0.2097} \approx .0407$$
 
-Whenever $Pr(B|A)$ is height, the equation reduces to the ratio  these two base rates: Pr(A) and Pr(B). In the context here, the test is not sensitive enough to be used for this application. 
+Whenever $Pr(B|A)$ is heigh, the equation reduces to the ratio  these two base rates: Pr(A) and Pr(B). In the context here, the test is not sensitive enough to be used for this application. 
 
 In the context of Bayesian statistical inference, $Pr(A)$ is the prior  and provides information about how likely the outcome is in the absence of other data. $Pr(B)$, sometimes termed the normalizing constant, because it scales the result into a probability between the 1 and 0. 
 
@@ -72,10 +72,10 @@ With $D$ representing observed data the Bayes' theorem  can be stated as:
 $$p(\theta|D) = p(D|\theta) \frac{p(\theta)}{p(D)}$$
 
 
-Where the term $p(D|\theta)$ is: Likelihood of the data given the distribution of $\theta$, and evidence provided about the data about $\theta$. Therefore $p(\theta)$ and $p(\theta|D)$ are the prior and posterior distributions of $\theta$. The probability distribution $p(D)$ takes the role of the normalizing constant. The normalizing constant ($p(D)$) does not need to be evaluated exactly.
+Where the term $p(D|\theta)$ is: Likelihood of the data given the distribution of $\theta$, and evidence provided by data about $\theta$. $p(\theta)$ and $p(\theta|D)$ are the prior and posterior distributions of $\theta$. The probability distribution $p(D)$ takes the role of the normalizing constant. The normalizing constant ($p(D)$) does not need to be evaluated exactly.
 
 
-Thus the equation can be re written as
+This equation can be re written as:
 $$p(\theta|D) \propto \ell(\theta | D) p(\theta)) $$
 
 
@@ -84,7 +84,7 @@ That is: the **posterior probability** ($p(\theta | D)$) is proportional  to the
 This equation summarizes what Bayesian inference does: it combines prior knowledge with evidence from new data. This also contrasts with happens in NHST, where we focus primarily on the evidence at hand, without incorporating previous data into the outcome in a formal manner.
 
 
-$p(\theta)$ is a probability distribution for a parameter and can be represented in different ways as long as it sums to 1. If  $\theta =  1$ and  can be and can be represented by a normal distribution of $\mu = 1$, then  $\sigma$ for this distribution can fall between $0$ (maximally informative prior) and $\infty$ (diffuse or uninformative prior). A reasonable choice would fall in between these two extremes
+$p(\theta)$ is a probability distribution for a parameter and can be represented in different ways as long as it sums to 1. If  $\theta =  1$ and   and can be represented by a normal distribution of $\mu = 1$, then  $\sigma$ for this distribution can fall between $0$ (maximally informative prior) and $\infty$ (diffuse or uninformative prior). A reasonable choice would fall in between these two extremes
 
 
 All other things being equal, changing the $\sigma$ of the prior affects the posterior. The greater the variance of the prior, the less informative it is.
@@ -100,8 +100,4 @@ Two main philosophies on selecting a prior:
 
 Nevertheless the idea that there if subjectivity in selecting a prior, and by extension subjectivity surrounding can be seen as a contrast to to NHSTs. However, interpretation of data with NHSTs does preclude the fact the same evidence may be viewed in a different light. 
 
-The choice of prior is not limited to the normal distribution. 
-
-
-..
-
+The choice of prior is not limited to the normal distribution.

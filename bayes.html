@@ -130,13 +130,14 @@ $(document).ready(function () {
 <h1>Bayesian inference</h1>
 <p>The goal of Bayesian inference: move beyond assessment of evidence to obtain an accurate model of the world by combining new data with existing knowledge.</p>
 <p>This involves:</p>
-<p>A prior: a probability distribution that reflects the uncertainty of existing knowledge. The posterior: the outcome of Bayesian inference. Also a probability distribution</p>
+<p>A prior: a probability distribution that reflects the uncertainty of existing knowledge.<br />
+The posterior: the outcome of Bayesian inference. Also a probability distribution</p>
 <div id="bayes-theorem-as-an-equation-for-dealing-with-conditional-probabilities" class="section level4">
 <h4>Bayes’ theorem as an equation for dealing with conditional probabilities:</h4>
 <p>This equation can also be expressed as:</p>
 <p><span class="math display">\[Pr(A|B) = Pr(B|A) \frac{Pr(A)} {Pr(B)}\]</span></p>
 <p>This equation describes the relationship between probabilities.</p>
-<p>Lets say that lie detector test is being evaluated. Lets consider that Event <strong>A</strong> is lying and Event <strong>B</strong> is failing the lie detector test (detecting a lie).</p>
+<p>Lets say that lie detector test is being evaluated. Lets consider that Event <strong>A</strong> is lying and Event <strong>B</strong> is failing the lie detector test.</p>
 <p>If lies are detected 99% of the time by the lie detector (99% success rate), then <span class="math inline">\(Pr(B|A) = .99\)</span>. In other words the probability of B (detecting a lie) given that A is true (one is lying).</p>
 <p>If there is 2% false positive rate of (detecting a lie when there is no lie), the probability of <strong>B</strong> given that <strong>A</strong> is <em>not</em> true is not true is <span class="math inline">\(Pr(B|\sim A) = .02\)</span></p>
 <p>If the probability of <strong>A</strong> is 0.001, (every 1000th person is a liar, <span class="math inline">\(Pr(A) = 0.001\)</span>), then the probability of A not being true (the probability of not being a liar) is <span class="math inline">\(Pr(\sim A) = 1-.001 = .999\)</span>. <span class="math inline">\(Pr(B)\)</span> the probability of failing the lie detector test irrespective of the truth of A. Given that there are 2 outcomes for, the the probability of B when someone is lying, plus the probability its probability when they are not lying.</p>
@@ -147,7 +148,7 @@ $(document).ready(function () {
 <p>For rare events, such as finding the liar, the <span class="math inline">\(Pr(B)\)</span> is dominated by the false positive rate.</p>
 <p>Now that we know what <span class="math inline">\(Pr(B)\)</span>, the probability of failing the test is, we can determine Pr(A|B): the probability of lying given that one has failed the test.</p>
 <p><span class="math display">\[Pr(A|B) = Pr(B|A)\frac{Pr(A)}{Pr(B)} =  .99 \times \frac{.001}{0.2097} \approx .0407\]</span></p>
-<p>Whenever <span class="math inline">\(Pr(B|A)\)</span> is height, the equation reduces to the ratio these two base rates: Pr(A) and Pr(B). In the context here, the test is not sensitive enough to be used for this application.</p>
+<p>Whenever <span class="math inline">\(Pr(B|A)\)</span> is heigh, the equation reduces to the ratio these two base rates: Pr(A) and Pr(B). In the context here, the test is not sensitive enough to be used for this application.</p>
 <p>In the context of Bayesian statistical inference, <span class="math inline">\(Pr(A)\)</span> is the prior and provides information about how likely the outcome is in the absence of other data. <span class="math inline">\(Pr(B)\)</span>, sometimes termed the normalizing constant, because it scales the result into a probability between the 1 and 0.</p>
 <p>The <em>prior</em> is a probability or probability distribution that reflects the degree of uncertainty of existing knowledge. The outcome of Bayesian inference is also a probability distribution * the posterior*</p>
 </div>
@@ -156,11 +157,11 @@ $(document).ready(function () {
 <p>Bayesian inference involves modeling the posterior probability distribution <span class="math inline">\(\theta\)</span> as a function of the evidence provided by the data and a prior distribution. The quantity <span class="math inline">\(\theta\)</span> can be a single parameter or a set of parameters.</p>
 <p>With <span class="math inline">\(D\)</span> representing observed data the Bayes’ theorem can be stated as:</p>
 <p><span class="math display">\[p(\theta|D) = p(D|\theta) \frac{p(\theta)}{p(D)}\]</span></p>
-<p>Where the term <span class="math inline">\(p(D|\theta)\)</span> is: Likelihood of the data given the distribution of <span class="math inline">\(\theta\)</span>, and evidence provided about the data about <span class="math inline">\(\theta\)</span>. Therefore <span class="math inline">\(p(\theta)\)</span> and <span class="math inline">\(p(\theta|D)\)</span> are the prior and posterior distributions of <span class="math inline">\(\theta\)</span>. The probability distribution <span class="math inline">\(p(D)\)</span> takes the role of the normalizing constant. The normalizing constant (<span class="math inline">\(p(D)\)</span>) does not need to be evaluated exactly.</p>
-<p>Thus the equation can be re written as <span class="math display">\[p(\theta|D) \propto \ell(\theta | D) p(\theta)) \]</span></p>
+<p>Where the term <span class="math inline">\(p(D|\theta)\)</span> is: Likelihood of the data given the distribution of <span class="math inline">\(\theta\)</span>, and evidence provided by data about <span class="math inline">\(\theta\)</span>. <span class="math inline">\(p(\theta)\)</span> and <span class="math inline">\(p(\theta|D)\)</span> are the prior and posterior distributions of <span class="math inline">\(\theta\)</span>. The probability distribution <span class="math inline">\(p(D)\)</span> takes the role of the normalizing constant. The normalizing constant (<span class="math inline">\(p(D)\)</span>) does not need to be evaluated exactly.</p>
+<p>This equation can be re written as: <span class="math display">\[p(\theta|D) \propto \ell(\theta | D) p(\theta)) \]</span></p>
 <p>That is: the <strong>posterior probability</strong> (<span class="math inline">\(p(\theta | D)\)</span>) is proportional to the likelihood of <span class="math inline">\(\ell(\theta|D)\)</span> times the <strong>prior</strong> (<span class="math inline">\(p(\theta)\)</span>)</p>
 <p>This equation summarizes what Bayesian inference does: it combines prior knowledge with evidence from new data. This also contrasts with happens in NHST, where we focus primarily on the evidence at hand, without incorporating previous data into the outcome in a formal manner.</p>
-<p><span class="math inline">\(p(\theta)\)</span> is a probability distribution for a parameter and can be represented in different ways as long as it sums to 1. If <span class="math inline">\(\theta = 1\)</span> and can be and can be represented by a normal distribution of <span class="math inline">\(\mu = 1\)</span>, then <span class="math inline">\(\sigma\)</span> for this distribution can fall between <span class="math inline">\(0\)</span> (maximally informative prior) and <span class="math inline">\(\infty\)</span> (diffuse or uninformative prior). A reasonable choice would fall in between these two extremes</p>
+<p><span class="math inline">\(p(\theta)\)</span> is a probability distribution for a parameter and can be represented in different ways as long as it sums to 1. If <span class="math inline">\(\theta = 1\)</span> and and can be represented by a normal distribution of <span class="math inline">\(\mu = 1\)</span>, then <span class="math inline">\(\sigma\)</span> for this distribution can fall between <span class="math inline">\(0\)</span> (maximally informative prior) and <span class="math inline">\(\infty\)</span> (diffuse or uninformative prior). A reasonable choice would fall in between these two extremes</p>
 <p>All other things being equal, changing the <span class="math inline">\(\sigma\)</span> of the prior affects the posterior. The greater the variance of the prior, the less informative it is.</p>
 <div id="selecting-a-prior" class="section level3">
 <h3>Selecting a prior</h3>
@@ -172,7 +173,6 @@ $(document).ready(function () {
 </ol>
 <p>Nevertheless the idea that there if subjectivity in selecting a prior, and by extension subjectivity surrounding can be seen as a contrast to to NHSTs. However, interpretation of data with NHSTs does preclude the fact the same evidence may be viewed in a different light.</p>
 <p>The choice of prior is not limited to the normal distribution.</p>
-<p>..</p>
 </div>
 </div>
 </div>
