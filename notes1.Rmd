@@ -81,7 +81,7 @@ There are two arguments as to why setting up a point null hypothesis might be re
 ##Frequentist responses to the NHST controversy
 
 ## Strict Neyman-Pearons inference.
-Many problems with application of the NHST arise from the confusion of Fisherian with Neyman-Pearson inference. Neyman and Pearson aimed to develop a description procedure controlling for the long-run Type-1 and Type-II error rates for sets of tests.
+Many problems with application of the NHST arise from the confusion of Fisherian with Neyman-Pearson inference. Neyman and Pearson aimed to develop a description procedure controlling for the lsdong-run Type-1 and Type-II error rates for sets of tests.
 
 
 1. Desired levels of $\alpha$ and $\beta$ should be determined in relation to the cost of Type-I and Type-II errors. Much research sets an  $\alpha = .05$ for statistical power and arbitrary $\beta = 0.20$ is common (power $1-\beta=.80$)
@@ -204,19 +204,12 @@ $$o^2_{post} = \bigg(\frac{1}{\hat{\sigma}^2_{\hat{\mu}}} + \frac{1}{\sigma^2_{p
 
 The quanity $\hat{\sigma}^2_{\hat{\mu}}$ is the variance of the sampling distribution of the data and its recipircal is of termed the precesion of the the sample. the recipircal of the prior variance is the precission of the prior. The ifnal step is the wieght of the mean of the prior and the sample by their respecitve variances. 
 
-$$u_{post} = \bigg(\frac {\sigma^{2}_{post}}{\hat{\sigma}^2_{\hat{\mu}}}\hat{\mu} + \frac{}{\sigma^2_{prior}} \bigg)^{-1}$$
+$$u_{post} = \bigg(\frac {\sigma^{2}_{post}}{\hat{\sigma}^2_{\hat{\mu}}}\hat{\mu} + \frac{\sigma^2_{post}}{\sigma^2_{prior}} \bigg)\mu_{prior}$$
 
 
 As the posterior distribution is normal it can be used for prediciton or to dervie an inteval estimate.  
 
 
-
-```{r}
-mtcars
-library(ggplot2)
-ggplot(mtcars, aes(mpg, cyl)) + geom_point()
-
-```
 
 
 
