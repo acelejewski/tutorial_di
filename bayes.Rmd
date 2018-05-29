@@ -53,7 +53,7 @@ Now that we know what $Pr(B)$, the probability of failing the test is, we can de
 
 $$Pr(A|B) = Pr(B|A)\frac{Pr(A)}{Pr(B)} =  .99 \times \frac{.001}{0.2097} \approx .0407$$
 
-Whenever $Pr(B|A)$ is heigh, the equation reduces to the ratio  these two base rates: Pr(A) and Pr(B). In the context here, the test is not sensitive enough to be used for this application. 
+Whenever $Pr(B|A)$ is high, the equation reduces to the ratio  these two base rates: Pr(A) and Pr(B). In the context here, the test is not sensitive enough to be used for this application. 
 
 In the context of Bayesian statistical inference, $Pr(A)$ is the prior  and provides information about how likely the outcome is in the absence of other data. $Pr(B)$, sometimes termed the normalizing constant, because it scales the result into a probability between the 1 and 0. 
 
