@@ -16,20 +16,18 @@ The goal of Bayesian inference: move beyond assessment of evidence to obtain an 
 This involves:
 
 A prior: a probability distribution that reflects the uncertainty of existing knowledge. 
-The posterior: the outcome of Bayesian inference, also a probability distribution
+The posterior: the outcome of Bayesian inference. Also a probability distribution
 
 
 
 
-###Bayes' theorem as an equation for dealing with conditional probabilities:
-
-$$Pr(A|B) = \frac{Pr(A|B)(Pr(A))}{Pr(B)}$$
-
+####Bayes' theorem as an equation for dealing with conditional probabilities:
 
 This equation can also be expressed as:
 
 $$Pr(A|B) = Pr(B|A) \frac{Pr(A)} {Pr(B)}$$
 
+This equation describes the relationship between probabilities.
 
 Lets say that lie detector test is being evaluated. Lets consider that Event **A** is lying and Event **B** is failing the lie detector test (detecting a lie).
 
@@ -100,32 +98,6 @@ Two main philosophies on selecting a prior:
 1. **Subjective Bayes:** Selection of a prior is a mater of personal belief or judgement, i.e an expert opinion. 
 2. **Objective Bayes:** Selecting a prior that some basis in the evidence. While there there remains some subjectivity, a lack of of confidence  in the prior can be incorporated by adjusting the $\sigma$ upwards. 
 
-Nevertheless the idea that there if subjectivity in selecting a priror, and by extension subjectivity surrounding can be seen as a constrast to to NHSTs. However, interpration of data with NHSTs does preclude the fact the same evidence may be viewed in a different light. 
+Nevertheless the idea that there if subjectivity in selecting a prior, and by extension subjectivity surrounding can be seen as a contrast to to NHSTs. However, interpretation of data with NHSTs does preclude the fact the same evidence may be viewed in a different light. 
 
-The choice o prior is not limited to the normal distribution. 
-
-###Normal distributions with know variance
-Depending on the complexity of the model, the distribution of parameters and the number of parameters, the integral my have know solution or not. if there is no known solution, Monte Carlo methods can be applied. 
-
-If the prior and and likelihood are both normal, the posterior is also normal. Provided the variance of the sample is known, there is a simple analytic solution. if the variance is unknown, an analytical solution exists using the t distribution. 
-
-The likelihood function for a same from a normal distribution with known variance can be expressed as:
-$$\ell (\theta|D) \sim N( \hat{\mu}, \hat{\sigma}_\hat{\mu} )$$
-If the prior elicited for the analysis is a normal distribution with mean $\mu_{prior}$ and a standard deviation $\sigma_{prior}$ then the posterior will als be normal, its mean and SD is a funtion of $\hat{\mu}$, $\mu_{prior}$ and $\sigma^2_{prior}$. The variance of a the posterior distriubiton is. 
-
-$$o^2_{post} = \bigg(\frac{1}{\hat{\sigma}^2_{\hat{\mu}}} + \frac{1}{\sigma^2_{prior}} \bigg)^{-1}$$
-
-The quanity $\hat{\sigma}^2_{\hat{\mu}}$ is the variance of the sampling distribution of the data and its recipircal is of termed the precesion of the the sample. the recipircal of the prior variance is the precission of the prior. The ifnal step is the wieght of the mean of the prior and the sample by their respecitve variances. 
-
-$$u_{post} = \bigg(\frac {\sigma^{2}_{post}}{\hat{\sigma}^2_{\hat{\mu}}}\hat{\mu} + \frac{\sigma^2_{post}}{\sigma^2_{prior}} \bigg)\mu_{prior}$$
-
-
-As the posterior distribution is normal it can be used for prediciton or to dervie an inteval estimate.  
-
-
-###A Bayesina t-test...
-
-
-asfdadsf
-
-
+The choice of prior is not limited to the normal distribution. 
