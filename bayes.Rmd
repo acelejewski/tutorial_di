@@ -102,3 +102,6 @@ Nevertheless the idea that there if subjectivity in selecting a prior, and by ex
 
 The choice of prior is not limited to the normal distribution. 
 
+
+..
+
