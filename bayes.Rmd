@@ -123,7 +123,7 @@ $$u_{post} = \bigg(\frac {\sigma^{2}_{post}}{\hat{\sigma}^2_{\hat{\mu}}}\hat{\mu
 As the posterior distribution is normal it can be used for prediciton or to dervie an inteval estimate.  
 
 
-###A Bayesina t-test
+###A Bayesina t-test...
 
 
 
