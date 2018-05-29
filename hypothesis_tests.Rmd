@@ -11,90 +11,86 @@ library(ggplot2)
 library(gridExtra)
 ```
 
-## Hypothsis testing
+# Hypothsis testing
 
-In empirical research, we test theories. A good theory, is one that testable predictions. To test prediction, the null hypothesis significance test (**NHST**) is the most prevalent statistical tool for testing such predictions. 
-
-
-### Setting up a statistical hypothesis.
-
-e.g.test whether drug to reduce a motivation for food. Compare rats in a treatment group to a control group. Our rats that get the drug will be less drink less sugar, perhaps and consequenly will spend more time lever pressing for that drug.
+In empirical research, we test theories. A good theory, is one that generates testable predictions. To test such predictions, the Null Hypothesis Significance Test (**NHST**) is the most prevalent statistical tool.
 
 
-With an NHSTs we calculate the probability of an effect of a certain size, or larger being observed if there was no true effect. This is done by testing a null hypothesis ($H_0$) rather than the hypothis of interest, ($H_1$). The null hyphothis, is the hypothisis that there is no effect.
+###Setting up a statistical hypothesis.
 
-e.g. if we want see that a drug reduces 
+e.g. evaluate drug for obesity
 
-A NHST  calculates the probabilty of obtaining an event a differnce in motivation for sugar, n. In our example, we determine the probability obtaining a our measure motivation if our true populaiton differnce difference was 0 lever presses. This probability is the signifnace probability, or $p$
+With  NHSTs, we calculate the probability of an effect of a certain size, or larger being observed if there was no true effect. This is done by testing a null hypothesis ($H_0$) rather than the hypothesis of interest, ($H_1$). The null hypothesis, is the hypothesis that there is no effect.
 
-If p, is small enough, than we might deem that resonable to reject the null hyphthesis, and state that the treatment is effective. If p is large, thatn we coudl say that our result could have been eaisly obtained by chance if $H_0$ is true, that is our treamtent was not effective in reducting the motivation for sugar water. In this case our test indicatress a fialure to reject the null hypothesis. 
+e.g. if we want see that a drug reduces eating, the $H_0$ is that drug and no-drug groups spend the same amount of time lever pressing for food.
 
-Thefore, there are 2 potential outcomes, rejecting, or failing to rejecting, or failing to reject the null hypothesis. This is the basis of NHSTs
+A NHST in our example, determines the probability of obtaining a results if our true population difference difference was 0. This probability is the significance probability, or $p$
 
-There are some subtle disctions here, lets review the main points
+If $p$, is small enough, than we can deem that it is reasonable to reject $H_0$
 
-1. A $H_0$ is set up
-2. the probability ($p$) of obtaining the observed statstic or one more exterme if $H_0$ is tru eis calculatteecd
-3. if $p$ is small, we reject the H_0 and if p is large, the we fail to recject $H_0$
+Therefore, there are 2 potential outcomes of an NHST, rejecting, or failing to reject the null hypothesis.
 
-The reaons we set up a null hypothisis is a philosphical. Failing to reject the null does not mean we found that there is no effect, but rather that our measure was inconclusive. We cannot show an absence of an effect, so we say that we have failed to reject the null. 
+There are some subtle distinctions here, lets review the main points
 
-Despite that the NHST is very poplular, it is also very demanidng. it needs to be:
-1. the $p$ value is caluclated not in relation the hypohothis of interest but for the null hypotheis. 
-2. **A  *p* value is conditional probability, specificallly it is the probability of a result as extreme or more extreme than the one observed when $H_0$ is true. ** It is *not* the the probability of $H_0$ being true (an unconditional probability).
-
-OK, so we reject H0 when $p$ is small, but what is a small p?
-
-##Statsical significance, confidnece and alpha
-NHSTs work only if we set a signifincacne cirtiron, denoted by $\alpha$. is set prior to the test. Otherwise we can always say, well, thats closes enough, or myaybe this will work this time. What $\alpha$ is often specfict to various fields. Although in an ideal world, $\alpha$ should be set for each test, realsitcally there is no way of know if the value of alpha was fixed prior to the test. so to be fair, this has to be set before
-
-For many discplices a common $\alpha$ level is set  $\alpha = 0.05$. We say that when $p<0.05$ that statstical signifcance is declared. 
+1. Set up an $H_0$
+2. Calculate the probability, ($p$) of obtaining the observed statistic if $H_0$ is true
+3. If $p$ is small, we reject the $H_0$. If p is large we fail to reject the $H_0$
 
 
-## Calculating  p for one-sided and two sided  tests
-In order to construct significance test, at least 3  components are required.
+**A $p$ value is a conditional probability, specifically it is the probability of a result as extreme or more extreme than the one observed when $H_0$ is true.  It is *not* the the probability of $H_0$ being true (an unconditional probability).**
 
-1. A null hypothesis.
-2. An $\alpha$ level. 
+OK, so we reject $H_0$ when $p$ is small, but what is a small p?
+
+###Deciding on a statistical signifance level
+NHSTs work only if we set a significance criterion, denoted by $\alpha$. $\alpha$ is set prior to the test. Otherwise we can always say, well, that was close enough.
+
+
+What $\alpha$ is set to, is specific to various fields. 
+
+For many disciplines a common $\alpha$ level is set at  $\alpha = 0.05$. When $p<0.05$ we say that statistical significance is declared. i.e. our drug works. 
+
+
+## Calculating  p
+In order to a construct significance test, at least 3  components are required.
+
+1. A null hypothesis
+2. An $\alpha$ level 
 3. A way of calculating $p$
 
 
-If the data is sampled from a known probability distribution, the $p$ can be calculated exactly. Otherwise, it we estimate $p$
+If the data is sampled from a known probability distribution, the $p$ can be calculated exactly. Otherwise, we estimate $p$.
 
-When the distribution is no known,test statistic are constructed so they follow a familiar distribution. The central limit theorem, which shows that the sampling distribution can be normally distributed, provides a justification for many approximations.
+##A one sample z-test
+*A basic form of NHST when varaince of distribution is known.* \
+In theory, we cannot know the population parameters unless we recorded them from each member of the population.
+In practice we can come close enough in  cases where we have a lot of data, e.g. BMI, or IQ. So in practice this can be true.
+
+Say that it is well know rats will spend on an average of 12.5 min out of 30 min session, lever pressing for given concentration of sugar water over a fixed duration of time. \
 
 
-#A one sample z-test
-*A basic form of NHST when varaince of distribution is known.* \\
-
-In theory, we cannot know the population paramters unless we recorded them from each memeber of the population.
-In practice we can come close enought in  cases where we have a lot of data, e.g. BMI, or IQ. So in practice this can be true.
-
-Say that it is well know rats will spend on average of 12.5 min out of 30 min sesssion, lever pressing for given concentration of sugar water over a fixed duraiton of time. \\
-
-If we are testing an appetite suppressing durg, our $H_0$ that the drug has no effect:
+If we are testing our appetite suppressing drug, our $H_0$ that the drug has no effect:
 $$H_0: \mu = 12.5\\ H_1: \mu \neq 12.5\\$$
  
 
-Lets say that we evaluated a sample of $n=16$ rats, which were given the  appetite suppressing drug. We found that these rats spend 9.5 min lever pressing for the sugar water  over fixed session duration.  
+Lets say that we evaluated a sample of $n=16$ rats that were given the  appetite suppressing drug. We found that these rats spend 9.5 min lever pressing for the sugar water  over fixed session duration.  
 
-Lets also say that  the variance for time spent lever pressing for rats is 2 min. If the distrubiton of the time spent lever pressing is *normall distributed*, we can obtain obtain a test z-statistic, or z-score. 
+Lets also say that  the variance for time spent lever pressing for these rats is 2 min. If the distribution of the time spent lever pressing is *normally distributed*, we can obtain obtain a test z-statistic, or z-score. 
 
 
-$$\frac{(\hat{\mu}-\mu_0)}{\sigma_{\hat{\mu}}}  \;\;\   Z \sim N(0,1)$$
-Where $\sigma_{\hat{\mu}}$ is the standard error of the mean (SE) and is equivalent to $\sigma/\sqrt{n} = 2/\sqrt{16} = 2 $
+$$\frac{(\hat{\mu}-\mu_0)}{\sigma_{\hat{\mu}}}  \;\;\   z \sim N(0,1)$$
+Where $\sigma_{\hat{\mu}}$ is the standard error of the mean (SE) and is equivalent to $\sigma/\sqrt{n} = 2/\sqrt{16} = 2$
 
-So in this 
+So for this example:
 $$\frac{(\hat{\mu}-\mu_0)}{\sigma_{\hat{\mu}}} = \frac{(9.5-12.5)}{2} = -1.5$$
 
-For a one sideded test,  the p value is the probability that we of get a z-statistic more extreme than -1.5 (more negative). For a two sided test, the p value  is the probability that z is  $\leq -1.5$ and $\geq 1.5$. Graphically we can represent the probability of getting this scores falling within the blue shaded region.
+For a one sided test,  the p value is the probability that we of get a z-statistic more extreme than -1.5 (more negative). For a two sided test, the p value  is the probability that z is  $\leq -1.5$ and $\geq 1.5$. Graphically we can represent the probability of the socre. (within the blue shaded region)
 
-```{r echo = FALSE, fig.height=3, fig.width=8}
+```{r fig.height=3, fig.width=8}
 
 grid.arrange(
 ggplot(NULL, aes(c(-5,3))) +
   geom_area(stat = "function", fun = dnorm, fill = "lightblue", xlim = c(-4, -1.5)) +
-  geom_area(stat = "function", fun = dnorm, fill = "grey90", xlim = c(-1.5, 4)) +
+  geom_area(stat = "function", fun = dnorm, fill = "grey70", xlim = c(-1.5, 4)) +
   geom_area(stat = "function", fun = dnorm, fill = "lightblue", xlim = c(1.5, 4)) +
   ggtitle("a two sided test") +
   xlab("z") +
@@ -102,8 +98,8 @@ ggplot(NULL, aes(c(-5,3))) +
   theme_bw(),
 
 ggplot(NULL, aes(c(-3,3))) +
-  geom_area(stat = "function", fun = dnorm, fill = "grey90", xlim = c(-4, 4)) +
-  geom_area(stat = "function", fun = dnorm, fill = "lightblue", xlim = c(1.5, 4)) +
+  geom_area(stat = "function", fun = dnorm, fill = "lightblue", xlim = c(-4, 4)) +
+  geom_area(stat = "function", fun = dnorm, fill = "gray70", xlim = c(-1.5, 4)) +
   ggtitle("a one sided test") +
   xlab("z") +
   ylab("probability density") +
@@ -112,54 +108,60 @@ ncol=2)
 
 ```
 
-```{r}
-pnorm(1.65) #our p value is
-```
 
-
-we can get the probabiltiy of -1.6 in R using the `pnorm` function.
+we can get the probability of $z = -1.5$ in R using the `pnorm` function.
 
 
 ```{r}
-1 - pnorm(1.5)
+pnorm(-1.5)
 ```
-for a one sided test. while for a two sided test we sum the the tail probabilites, which woudl be 0.134. Depending on our chosen $\alpha$ we can reject or fail to reject the null. This can also be dependnent on whehter the test is one or two-sided. 
+For a one sided test. For a 2 sided test we multiply p by 2. Depending on our chosen $\alpha$ we can reject or fail to reject the null. This decision is influenced by whether the test is one or two-sided. 
 
-Howevre,  although directional tests produces smaller p-values than non-directional tests it usually recommened against.  
-For tests statistics with symmetrical distribution the observed p value for a one sided directional equivalent will be half of the of the equivalent. However:
+Although directional tests produces smaller p-values than non-directional tests, bi-directional tests are recommended.
+For tests statistics with symmetrical distribution the observed p value for a one sided directional equivalent will be half of the of the two-sided equivalent. However:
 
-1. What if there is an effect in opposite two our prediction?
+1. What if there is an effect in opposite to our prediction?
 2. We need to choose our $\alpha$ in advance
 
-on-sided tests are the fore usually avoided. 
+
+
+##The t-test
+Since we don't usually know the variance of the distribution from which we are drawing our sample we use the t-distribution for our significance test. The t-distribution is better for small *n*'s, and begins to look like the z-distribution as the $n$ increases.
+
+####One sample t-test
+An NHST for a single sample is constructed using samplle estimate of $\sigma$. If $H_0$ is true the statistic is:
+
+$$t = \frac{\hat{\mu} - \mu_0}{\hat{\sigma_{\hat{\mu}}}} = \frac{\hat{\mu} - \mu_0}{\hat{\sigma}/\sqrt{n}} = \sim t(v) $$
+- where $\mu_0$ is the population mean as specified under $H_0$, and $\hat{\sigma_{\hat{\mu}}}$ is the standard error of the mean.\
+- the null hypothesis is $H_0: \mu = \mu_0$  and $H_1: \mu \neq \mu_0$\
+- the t statistic is evaluated against the t-distribution with $v = n-1$ degrees of freedom $(df)$
 
 
 
-##t-test
-Since we don't usually know the variance of the normal distribution from which we are drawing our sample we use the t-distribution for our significance test. The t distribution is better for small ns, but it beings to look like the z distribution as the $n$ increases
+#### Independent t-test
+The independent t-test is the NHST of difference between the means, of two *independent normal samples*, with unknown but *equal $\sigma$*
 
-####one sample t-test
-An NHST for a single sample constructed using same estimate of $\sigma$. if H_0 is true the statstic is:
+If the null hypothesis is true (no difference between the means) $H_0: \mu_1 - \mu_2$ = 0, where the alternate hypothesis is  $H_A: \mu_1 \neq  \mu_2$
 
-$t = \hat{\mu} - \mu_0$
-
+For an independent t test the t-statistic takes the form of:
 
 
-### Independent t-test
-The independent t-test is is the NHST of difference between the means, of two *independent normal samples*, with unknown but *equal $\sigma$*
+$$t = \frac{\hat{\mu_1} - \hat{\mu_2} }{\hat{\sigma_{\hat{\mu_1}-\hat{\mu_2}}}} =  \frac{\hat{\mu_1} - \hat{\mu_2} }{\hat{\sigma}_{pooled} \sqrt{1/n_1 + 1/n_2}}$$
 
-If the null hypothies true (no difference between the means) $H_0: \mu_1 - \mu_2$ = 0, where the alternate hypothisis is  $H_A: \mu_1 \neq  \mu_2$
-
-The t-statistic takes the form of
+This distribution has a df of N-2 where N is the total sample size. 
 
 
-$$\frac{\hat{\mu_1} - \hat{\mu_1} - \sigma_0}{\hat{\sigma_{\hat{\mu_1}-\hat{\mu_2}}}} = \\ \frac{\hat{\mu_1} - \hat{\mu_2} - \sigma_0}{\hat{\sigma}_{pooled} \sqrt{1/n_1 + 1/n_2}}$$
+We generate fake data from our groups by sampling from the normal distribution to conform with our drug example.
+```{r}
+set.seed(232)
+rats_treat <- rnorm(n  = 16, mean = 9.5, sd = 2 )
+rats_control <- rnorm(n  = 16, mean = 12.5, sd = 2 ) 
+```
 
-This distribution has a df of N-2 wher eN is the total samle size
 
-if the equal variance assumption is not met than the  Welch-Satterthwaite correction can be employed, R does this by default
-
-
-
+We can use the formulas as we did with the z test
+```{r}
+t.test(rats_treat, rats_control, var.equal = TRUE)
+```
 
 

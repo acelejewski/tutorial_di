@@ -1,0 +1,130 @@
+---
+title: "Bayes"
+author: "Adam"
+date: "May 27, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+#Bayesian inference
+The goal of Bayesian inference: move beyond assessment of evidence to obtain an accurate model of the world by combining new data with existing knowledge.
+
+This involves:
+
+A prior: a probability distribution that reflects the uncertain of existing knowledge. 
+The posterior: the outcome of Bayesian inference, also a probability distribution
+
+
+
+
+###Bayes' theorem as an equation for dealing with conditional probabilities:
+
+$$Pr(A|B) = \frac{Pr(A|B)(Pr(A))}{Pr(B)}$$
+
+
+This equation can also be expressed as:
+
+$$Pr(A|B) = Pr(B|A) \frac{Pr(A)} {Pr(B)}$$
+
+
+Lets say that lie detector test is being evaluated. Lets consider that Event **A** is lying and Event **B** is failing the lie detector test (detecting a lie).
+
+If lies are detected 99% of the time by the lie detector (99% success rate), then $Pr(B|A) = .99$. In other words the probability of B (detecting a lie) given that A is true (one is lying). 
+
+If there is 2% false positive rate of (detecting a lie when there is no lie), the probability of **B** given that **A** is *not* true is not true is $Pr(B|\sim A) = .02$
+
+If the probability of **A** is 0.001, (every 1000th person is a liar,  $Pr(A) = 0.001$), then the probability of A not being true (the probability  of not  being a liar) is $Pr(\sim A) =  1-.001 = .999$. $Pr(B)$ the probability of failing the lie detector test irrespective of the truth of A. Given that there are 2 outcomes for, the the probability of B when someone is lying, plus the probability its probability when they are not lying.
+
+
+Given that there are 2 outcomes for lying (lying or not), the probability of  *B*, failing is the probability of B, when someone is lying plus the probability of when they are not lying. (simple multiplication of probabilities) 
+
+$$Pr(B) = Pr(B|A)Pr(A) +Pr(B|\sim A)Pr(\sim A)$$
+
+So the overall probability of failing the test is:
+
+$$Pr(B) = .99 \times .001 + .02 \times .999  = 0.0297$$
+
+
+For rare events, such as finding the liar, the $Pr(B)$ is dominated by the false positive rate.
+
+Now that we know what $Pr(B)$, the probability of failing the test is, we can determine Pr(A|B): the probability of lying given that one has failed the test.
+
+$$Pr(A|B) = Pr(B|A)\frac{Pr(A)}{Pr(B)} =  .99 \times \frac{.001}{0.2097} \approx .0407$$
+
+Whenever $Pr(B|A)$ is hight, the equation reduces to the ratio  these two base rates: Pr(A) and Pr(B). In the context here, the test is not sensitive enough to be used for this application. 
+
+In the context of Bayesian statistical inference, $Pr(A)$ is the prior  and provides information about how likely the outcome is in the absence of other data. $Pr(B)$, sometimes termed the normalizing constant, because it scales the result into a probability between the 1 and 0. 
+
+
+The *prior* is a probability or probability distribution that reflects the degree of uncertainty of existing knowledge. The outcome of Bayesian inference is also a probability distribution * the posterior*
+
+
+
+
+##The Baysian model
+Bayesian inference involves modeling the posterior probability distribution $\theta$ as a function of the evidence provided by the data and a prior distribution.  The quantity $\theta$ can be a single parameter or a set of parameters. 
+
+
+With $D$ representing observed data the Bayes' theorem  can be stated as:
+
+$$p(\theta|D) = p(D|\theta) \frac{p(\theta)}{p(D)}$$
+
+
+Where the term $p(D|\theta)$ is: Likelihood of the data given the distribution of $\theta$, and evidence provided about the data about $\theta$. Therefore $p(\theta)$ and $p(\theta|D)$ are the prior and posterior distributions of $\theta$. The probability distribution $p(D)$ takes the role of the normalizing constant. The normalizing constant ($p(D)$) does not need to be evaluated exaclty.
+
+
+Thus the equation can be re written as
+$$p(\theta|D) \propto \ell(\theta | D) p(\theta)) $$
+
+
+That is: the **posterior probability** ($p(\theta | D)$) is proportional  to the likelihood of $\ell(\theta|D)$ times the **prior** ($p(\theta)$)
+ 
+This equation summarizes what Bayesian inference doee: it combines prior knowledge with evidence from new data. This also contrasts with happens in NHST, where we focus primarily on the evidence at hand, without incorporating previous data into the outcome in a formal manner.
+
+
+$p(\theta)$ is a probability distribution for a parameter and can be represnted in different ways as long as it sums to 1. If  $\theta =  1$ and  can be and can be represented by a normal distribution of $\mu = 1$, then  $\sigma$ for this distribution can fall between $0$ (maximally informative prior) and $\infty$ (diffuse or uninformative prior). A reasonable choice would fall in between these two extermes
+
+
+All other things being equal, changing the $\sigma$ of the priror affects the posterior. The greater the variance of the prior, the less infomative it is.
+
+
+### Selecting a prior
+The choice of a prior is central to any Bayesian analysis. If there is no prior knowledge, the prior is *diffuse*,  spread over all possible values and the posterior distribution is **determined entirely by likelihood**. 
+
+Two main philosophies on selecting a prior:
+
+1. **Subjective Bayes:** Selection of a prior is a mater of personal belief or judgement, i.e an expert opinion. 
+2. **Objective Bayes:** Selecting a prior that some basis in the evidence. While there there remains some subjectivity, a lack of of confidence  in the prior can be incorporated by adjusting the $\sigma$ upwards. 
+
+Neverthe less the idea that there if subjectivity in selecting a priror, and by extension subjectivity surrounding can be seen as a constrast to to NHSTs. However, interpration of data with NHSTs does preclude the fact the same evidence may be viewed in a different light. 
+
+The choice o prior is not limited to the normal distribution. 
+
+###Normal distributions with know variance
+Depending on the complexity of hte modle, the distribution of paramters and the number of paratmers, the intergral my hava know solution or not. if there is no known solution, monte carlo methods can be applied. 
+
+If the prior and and liklihjood are both normal, the posterior is also normal. Provided the variance of hte samlpe is known, there is a simle analytic solution. if the variance is unkown, an anlatical solution exists usoing the t distribution. 
+
+The liklhood funtion for a samle from a nomal distributio wiht known vairnce can be expressed as:
+$$\ell (\theta|D) \sim N( \hat{\mu}, \hat{\sigma}_\hat{\mu} )$$
+If the priro elicited for the analsis is a normal distribution with mean $\mu_{prior}$ and a standard deviation $\sigma_{prior}$ then the posterior wil als be normal, its mean and SD is a funtion of $\hat{\mu}$, $\mu_{prior}$ and $\sigma^2_{prior}$. The variance of a the posterior distriubiton is. 
+
+$$o^2_{post} = \bigg(\frac{1}{\hat{\sigma}^2_{\hat{\mu}}} + \frac{1}{\sigma^2_{prior}} \bigg)^{-1}$$
+
+The quanity $\hat{\sigma}^2_{\hat{\mu}}$ is the variance of the sampling distribution of the data and its recipircal is of termed the precesion of the the sample. the recipircal of the prior variance is the precission of the prior. The ifnal step is the wieght of the mean of the prior and the sample by their respecitve variances. 
+
+$$u_{post} = \bigg(\frac {\sigma^{2}_{post}}{\hat{\sigma}^2_{\hat{\mu}}}\hat{\mu} + \frac{\sigma^2_{post}}{\sigma^2_{prior}} \bigg)\mu_{prior}$$
+
+
+As the posterior distribution is normal it can be used for prediciton or to dervie an inteval estimate.  
+
+
+###A Bayesina t-test
+
+
+
+
